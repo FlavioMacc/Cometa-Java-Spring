@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,7 +35,8 @@ public class ArticoliRestController {
 		
 		articoloRepository.save(articolo);		
 	}
-
+	
+	@CrossOrigin
 	@PostMapping("/readFileArticoli")
 	public String uploadFile(@RequestParam("articoli") MultipartFile file) throws Exception {
 		
@@ -54,6 +56,7 @@ public class ArticoliRestController {
 		return "ok";
 	}
 	
+	@CrossOrigin
 	@GetMapping("/getAllArticles")
 	public List<Articolo> getAllArticles(){
 		List<Articolo> articles=null;

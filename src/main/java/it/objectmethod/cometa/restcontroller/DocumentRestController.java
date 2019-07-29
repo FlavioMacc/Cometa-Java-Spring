@@ -82,9 +82,14 @@ public class DocumentRestController {
 	@CrossOrigin
 	@GetMapping("/getProgressNumber")
 	public Long insertDocumentTodb() {
-
-		Long progressNumber = documentoRepository.findLastProgressNumberDocument();
-
+		
+		Long progressNumber=null;
+		
+		progressNumber = documentoRepository.findLastProgressNumberDocument();
+		if(progressNumber == null) {
+			progressNumber = Long.parseLong("0");
+		}
+		
 		return progressNumber + 1;
 	}
 
