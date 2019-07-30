@@ -9,7 +9,9 @@ import it.objectmethod.cometa.domain.Lotto;
 @Repository
 public interface LottoRepository extends JpaRepository<Lotto, Long> {
 	
-	@Query(value="select a from Lotto a where a.codiceLotto = ?1")
+	@Query(value="select l from Lotto l where l.codiceLotto = ?1")
 	public Lotto findLottoForCode(String code);
-
+	
+	//@Query(value="select l from Lotto l where Articolo.codice = ?1") 
+	//public Lotto findLottoForArticleCode(String code);
 }

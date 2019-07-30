@@ -1,8 +1,15 @@
 package it.objectmethod.cometa.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +28,10 @@ public class Lotto {
 
 	@Column(name = "quantita")
 	private int quantita;
+	
+	/*@JoinColumn(name="lotto_id")
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<Long> idArticles = new ArrayList <Long> ();*/
 
 	public long getId() {
 		return id;
