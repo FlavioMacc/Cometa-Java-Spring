@@ -57,6 +57,18 @@ public class ArticoliRestController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/getIdArticleForCode")
+	public Long getIdArticleForCode(@RequestParam("codice") String codice) {
+		Long idArticle=null;
+		Articolo articolo=null;
+		System.out.println("des "+codice);
+		articolo=articoloRepository.findArticleForCode(codice);
+		idArticle=articolo.getId();
+		
+		return idArticle;
+	}
+	
+	@CrossOrigin
 	@GetMapping("/getAllArticles")
 	public List<Articolo> getAllArticles(){
 		List<Articolo> articles=null;

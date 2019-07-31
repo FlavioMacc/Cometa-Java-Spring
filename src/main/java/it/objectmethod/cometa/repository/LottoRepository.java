@@ -12,6 +12,6 @@ public interface LottoRepository extends JpaRepository<Lotto, Long> {
 	@Query(value="select l from Lotto l where l.codiceLotto = ?1")
 	public Lotto findLottoForCode(String code);
 	
-	//@Query(value="select l from Lotto l where Articolo.codice = ?1") 
-	//public Lotto findLottoForArticleCode(String code);
+	@Query(value="select l from Lotto l where l.idArticolo = ?1") 
+	public Lotto findLottoForArticleId(Long code);
 }

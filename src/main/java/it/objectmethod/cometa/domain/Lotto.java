@@ -29,8 +29,8 @@ public class Lotto {
 	@Column(name = "quantita")
 	private int quantita;
 	
-	/*@JoinColumn(name="lotto_id")
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	/*@JoinColumn(name="id")
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Long> idArticles = new ArrayList <Long> ();*/
 
 	public long getId() {

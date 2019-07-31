@@ -93,17 +93,6 @@ public class DocumentRestController {
 		return progressNumber + 1;
 	}
 	
-	@CrossOrigin
-	@GetMapping("/getLottoCode")
-	public String getLottoCode(@RequestParam("codice") String code) {
-		String lottoCode = null;
-		Lotto lotto=null;
-		
-		//lotto= lottoRepository.findLottoForArticleCode(code);
-		//lottoCode=lotto.getCodiceLotto();
-		
-		return lottoCode;
-	}
 	// =============================================\\
 
 	private void insertRowToDB(Long idDoc, RigaDocumento[] righeDoc) {

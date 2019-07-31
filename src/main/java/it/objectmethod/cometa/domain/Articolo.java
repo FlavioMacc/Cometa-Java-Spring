@@ -3,10 +3,7 @@ package it.objectmethod.cometa.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "articoli")
@@ -14,6 +11,7 @@ public class Articolo {
 
 	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
+	//@Column(name = "id")
 	private Long id;
 
 	@Column(name = "codice")
@@ -22,9 +20,8 @@ public class Articolo {
 	@Column(name = "descrizione")
 	private String descrizione;
 	
-	@JsonIgnore
-	@ManyToOne
-	private Lotto lotto;
+	/*@ManyToOne
+	private Lotto lotto;*/
 	
 	public Long getId() {
 		return id;
@@ -49,4 +46,12 @@ public class Articolo {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+	
+	/*public Lotto getLotto() {
+		return lotto;
+	}
+
+	public void setLotto(Lotto lotto) {
+		this.lotto = lotto;
+	}*/
 }
