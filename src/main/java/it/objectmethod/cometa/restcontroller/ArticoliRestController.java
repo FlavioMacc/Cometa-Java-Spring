@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,13 +69,23 @@ public class ArticoliRestController {
 		return idArticle;
 	}
 	
+	/*
 	@CrossOrigin
 	@GetMapping("/getAllArticles")
 	public List<Articolo> getAllArticles(){
 		List<Articolo> articles=null;
 		
 		articles=articoloRepository.findAll();
+		return articles;
 		
+	}*/
+	
+	@CrossOrigin
+	@GetMapping("/getTenArticlesForCode")
+	public List<Articolo> getTenArticlesForCode(@RequestParam("codice") String codice){
+		List<Articolo> articles=null;
+		
+		articles=articoloRepository.findAllArticleForCode(codice,new PageRequest(0,10));
 		return articles;
 		
 	}
